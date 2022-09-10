@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Select from "react-select";
+import "./App.css";
+import React, { Component } from "react";
+import options from "./option.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const styles = {
+  multiValue: (styles) => {
+    return {
+      ...styles,
+      backgroundColor: "papayawhip",
+    };
+  },
+};
+
+
+class App extends Component {
+  render() {
+    return (
+      <Select
+        styles={styles}
+        closeMenuOnSelect={false}
+        isMulti
+        options={options}
+        defaultValue={options[0]}
+      />
+    );
+  }
 }
 
 export default App;
